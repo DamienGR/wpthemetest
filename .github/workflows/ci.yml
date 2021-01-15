@@ -64,14 +64,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v1
 
-    - name: Run yarn install
-      run: |
-        yarn install
-
-    - name: Run yarn build
-      run: |
-        yarn run build --if-present
-
     - name: Run composer install
       run: |
         composer install --prefer-dist
@@ -81,7 +73,7 @@ jobs:
         bash bin/install-wp-tests.sh wordpress_test root root mysql ${{ matrix.wordpress }}
 
     - name: Install PHPUnit
-      run: | 
+      run: |
         composer global require "phpunit/phpunit=${{ matrix.phpunit }}"
 
     - name: Run PHPUnit
