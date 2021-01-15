@@ -86,4 +86,4 @@ jobs:
     
     - name: Run PHPCS Coding Standards
       run: |
-        ~/.composer/vendor/bin/phpcs
+        ~/.composer/vendor/bin/phpcs ${{ github.workspace }}
