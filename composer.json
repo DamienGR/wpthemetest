@@ -1,0 +1,13 @@
+{
+    "name": "baka/my-custom-theme",
+    "authors": [
+        {
+            "name": "Damien Gros",
+            "email": "damien.gr34@gmail.com"
+        }
+    ],
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.5"
+    }
+}
