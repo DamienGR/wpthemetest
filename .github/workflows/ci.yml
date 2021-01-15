@@ -29,4 +29,4 @@ jobs:
     - name: Debug
       run: |
         echo ${{ github.workspace }}
-        echo $HOME
+        echo ${{ env.HOME }}
