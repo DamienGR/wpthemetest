@@ -12,7 +12,7 @@ jobs:
       ports:
       - 80
       volumes:
-      - /__w/wpthemetest/wpthemetest:/var/www/html
+      - ${{ github.workspace }}:/var/www/html
     services:
       mysql:
         image: mysql:5.7.27
@@ -28,5 +28,5 @@ jobs:
 
     - name: Debug
       run: |
-        echo $GITHUB_WORKSPACE
-        echo $HOME
+        echo ${{ github.workspace }}
+        echo ${{ HOME }}
