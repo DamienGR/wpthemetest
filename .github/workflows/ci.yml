@@ -12,7 +12,16 @@ jobs:
       ports:
       - 80
       volumes:
-      - /home/runner/work/wpthemetest/wpthemetest:/var/www/html
+      - /__w/wpthemetest/wpthemetest:/var/www/html
+    services:
+      mysql:
+        image: mysql:5.7.27
+        env:
+          MYSQL_ROOT_PASSWORD: root
+        ports:
+        - 3306
+        volumes:
+        - /github/home/mysql:/var/lib/mysql
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v1
