@@ -12,7 +12,7 @@ jobs:
       ports:
       - 80
       volumes:
-      - $GITHUB_WORKSPACE:/var/www/html
+      - /home/runner/work/wpthemetest/wpthemetest:/var/www/html
     services:
       mysql:
         image: mysql:5.7.27
@@ -26,6 +26,7 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v1
 
-    - name: Show files
+    - name: Debug
       run: |
-        ls -la
+        echo $GITHUB_WORKSPACE
+        echo $HOME
