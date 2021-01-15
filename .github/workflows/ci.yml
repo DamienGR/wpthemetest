@@ -8,11 +8,11 @@ jobs:
       matrix:
         php: [7.3]
         node: [12.9.0]
-        mysql: [5.7.27]
-        wordpress: [5.2.2]
-        phpunit: [7.5.15]
-        wpcs: [2.1.1]
-        vipcs: [2.0.0]
+        mysql: [5.7]
+        wordpress: [latest]
+        phpunit: [^7.5]
+        wpcs: [^2.3]
+        vipcs: [^2.2]
     runs-on: ubuntu-latest
     container:
       image: php:${{ matrix.php }}-apache
@@ -78,13 +78,12 @@ jobs:
 
     - name: Run PHPUnit
       run: |
-        pwd
         ~/.composer/vendor/bin/phpunit
 
     - name: Install PHPCS with WordPress Coding Standards
       run: |
-        composer global require dealerdirect/phpcodesniffer-composer-installer:0.5.0 wp-coding-standards/wpcs:${{ matrix.wpcs }} automattic/vipwpcs:${{ matrix.vipcs }}
+        composer global require dealerdirect/phpcodesniffer-composer-installer wp-coding-standards/wpcs:${{ matrix.wpcs }} automattic/vipwpcs:${{ matrix.vipcs }}
     
     - name: Run PHPCS Coding Standards
       run: |
-        ~/.composer/vendor/bin/phpcs ${{ github.workspace }}
+        ~/.composer/vendor/bin/phpcs
